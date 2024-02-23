@@ -18,10 +18,13 @@ module.exports = (env, argv) => {
         },
         output: {
             filename: '[name].bundle.js', // The output bundle
-            path: path.resolve(__dirname, 'dist'), // Output directory
+            path: path.resolve(__dirname, 'dist'), // Output directory,
+            clean: true
         },
         optimization: {
-            runtimeChunk: 'single',
+            splitChunks: {
+                chunks: 'all',
+            },
         },
         devtool: 'source-map', module: {
             rules: [{
